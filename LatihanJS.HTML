@@ -1,0 +1,48 @@
+<!-- Felix Joshua Paulus - 105222032 -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Data Karyawan</title>
+</head>
+<body>
+    <h2>Form Data Karyawan</h2>
+    <form id="karyawanForm">
+        <div>
+            <label for="nama">Nama:</label>
+            <input type="text" id="nama" name="nama">
+        </div>
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email">
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password">
+        </div>
+        <div id="error-message"></div>
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        document.getElementById('karyawanForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const errorMessage = document.getElementById('error-message');
+            errorMessage.textContent = '';
+
+            const nama = document.getElementById('nama').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value.trim();
+
+            if (!nama || !email || !password) {
+                errorMessage.textContent = 'Semua bagian wajib diisi';
+            } else {
+                alert('Form berhasil disubmit');
+                event.target.reset();
+            }
+        });
+    </script>
+</body>
+</html>
